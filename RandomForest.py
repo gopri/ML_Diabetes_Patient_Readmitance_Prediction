@@ -19,7 +19,7 @@ rf_valid_labels_hat_res = []
 
 def rfPlots():
     # Plot
-    fig, ax = plt.subplots(1,2, figsize=(15,3))
+    fig, ax = plt.subplots(1,3, figsize=(15,3))
     ax[0].plot(max_depths, rf_train_accuracy_res[4], label = "Train dataset")
     ax[0].plot(max_depths, rf_valid_accuracy_res[4], label = "Valid dataset")
     ax[0].set_title("Random forest Accuracy for 100 estimators")

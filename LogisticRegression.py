@@ -33,8 +33,6 @@ def lrPlots():
     ax[1].plot(Cs, lr_valid_accuracy_res[0], label = "20 max_iters")
     ax[1].set_title("Logistic Regression Accuracy on validation dataset")
 
-    ax[2].set_title("Logistic Regression Accuracy on test dataset")
-
     for axes in ax.flat:
         axes.set(xlabel='C (inverse of regularization strength)', ylabel='Accuracy')
         axes.legend()
