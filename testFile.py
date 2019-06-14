@@ -9,9 +9,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import MLPClassifier
-#import skfeature as sky
+import skfeature as sky
 from sklearn.metrics import accuracy_score
-#import skfeature.function.similarity_based.fisher_score as fs
+import skfeature.function.similarity_based.fisher_score as fs
 from sklearn.metrics import accuracy_score
 
 def test(processed_train_features, train_labels, processed_test_features, test_labels):
@@ -30,4 +30,8 @@ def test(processed_train_features, train_labels, processed_test_features, test_l
     ada_test_labels_hat = ada_clf.predict(processed_test_features)
     print("Adaboost Classifier test accuracy: {}".format(100*accuracy_score(test_labels, ada_test_labels_hat)))
 
+    nn_clf = MLPClassifier(alpha=0.2,hidden_layer_sizes=(7, 4),random_state=0)
+    nn_clf.fit(processed_train_features,train_labels)
+    nn_test_labels_hat = nn_clf.predict(processed_test_features)
+    print("Neural Net test accuracy: {}".format(100*accuracy_score(test_labels, nn_test_labels_hat)))
 
